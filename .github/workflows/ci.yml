@@ -62,7 +62,7 @@ jobs:
           retention-days: 14
 
   release:
-    name: Draft release
+    name: Release
     needs: verify
     if: (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')) || (github.event_name == 'workflow_dispatch' && inputs.release_tag != '')
     runs-on: ubuntu-latest
@@ -74,7 +74,7 @@ jobs:
         with:
           name: window-tabs-unsigned
           path: dist
-      - name: Create or update draft
+      - name: Publish release
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
@@ -84,10 +84,11 @@ jobs:
           set -euo pipefail
           if gh release view "$RELEASE_TAG" --json isDraft > release.json 2>/dev/null; then
             if ! jq -e '.isDraft == true' release.json > /dev/null; then
-              echo "Refusing to replace assets in a published release."
-              exit 1
+              echo "Release already published."
+              exit 0
             fi
             gh release upload "$RELEASE_TAG" dist/*.zip dist/*.sha256 --clobber
+            gh release edit "$RELEASE_TAG" --draft=false
           else
             cat > release-notes.md <<'EOF'
           Unsigned Firefox extension package for Mozilla submission.
@@ -95,6 +96,6 @@ jobs:
           Requires Firefox desktop 142+. A Mozilla-signed package is required for normal installation.
           EOF
             gh release create "$RELEASE_TAG" dist/*.zip dist/*.sha256 \
-              --draft --verify-tag --title "Window Tabs $RELEASE_TAG" \
+              --verify-tag --title "Window Tabs $RELEASE_TAG" \
               --notes-file release-notes.md
           fi
