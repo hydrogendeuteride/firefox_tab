@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ !startsWith(github.ref, 'refs/tags/') }}
+
+jobs:
+  verify:
+    name: Verify (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13'
+      - name: Install development tools
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Test
+        run: npm test
+      - name: Lint extension
+        run: npm run lint
+      - name: Build and verify package
+        run: npm run package
+      - name: Upload unsigned package
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: window-tabs-unsigned
+          path: |
+            dist/window-tabs-*.zip
+            dist/window-tabs-*.sha256
+          if-no-files-found: error
+          retention-days: 14
+
+  release:
+    name: Draft release
+    needs: verify
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: window-tabs-unsigned
+          path: dist
+      - name: Create or update draft
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view "$RELEASE_TAG" --json isDraft > release.json 2>/dev/null; then
+            if ! jq -e '.isDraft == true' release.json > /dev/null; then
+              echo "Refusing to replace assets in a published release."
+              exit 1
+            fi
+            gh release upload "$RELEASE_TAG" dist/*.zip dist/*.sha256 --clobber
+          else
+            cat > release-notes.md <<'EOF'
+          Unsigned Firefox extension package for Mozilla submission.
+
+          Requires Firefox desktop 142+. A Mozilla-signed package is required for normal installation.
+          EOF
+            gh release create "$RELEASE_TAG" dist/*.zip dist/*.sha256 \
+              --draft --verify-tag --title "Window Tabs $RELEASE_TAG" \
+              --notes-file release-notes.md
+          fi

@@ -3,12 +3,26 @@
 ## Package
 
 ```powershell
-node --test tests/*.test.cjs
-npx --yes web-ext lint --source-dir . --ignore-files "*.md" "tests/**" "scripts/**" "dist/**" ".preview/**"
-python scripts/package.py
+npm ci
+npm test
+npm run lint
+npm run package
 ```
 
-Output: `dist/window-tabs-<version>.zip`, containing runtime files and translations only. The package is unsigned.
+Requires Node.js 24 and Python 3.13+. Output: `dist/window-tabs-<version>.zip` and its `.sha256` checksum. The package contains runtime files and translations only and is unsigned.
+
+## GitHub Actions
+
+Push the workflow to GitHub to enable CI. Every push, pull request, or manual run tests on Linux and Windows and uploads an unsigned package artifact.
+
+To create a draft release, update `manifest.json`, commit, and push a matching tag:
+
+```sh
+git tag v1.5.0
+git push origin v1.5.0
+```
+
+Both platforms must pass. A tag/version mismatch fails the build. Reruns update draft assets but never overwrite a published release. No custom secrets are needed; Mozilla signing remains manual.
 
 ## Publish
 

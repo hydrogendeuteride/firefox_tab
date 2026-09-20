@@ -2,7 +2,7 @@
 
 Export the current Firefox window's tabs as Markdown (default), text, or JSON. Drop an exported file to reopen tabs. Supports English and Korean, light and dark themes, and optional auto-save on window close.
 
-Requires Firefox desktop 142+. No build dependencies.
+Requires Firefox desktop 142+. No runtime dependencies.
 
 ## Use
 
@@ -17,8 +17,12 @@ Imports keep existing tabs and skip unsupported addresses. JSON restores pinned 
 ## Development
 
 ```powershell
-node --test tests/*.test.cjs
-python scripts/package.py
+npm ci
+npm test
+npm run lint
+npm run package
 ```
 
 See [Release](RELEASE.md) for distribution and [Privacy](PRIVACY.md) for data handling.
+
+GitHub Actions tests and packages every push and pull request on Linux and Windows. Version tags create a draft release with an unsigned ZIP and checksum.
