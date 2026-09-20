@@ -24,6 +24,8 @@ git push origin v1.5.0
 
 Both platforms must pass. A tag/version mismatch fails the build. Reruns update draft assets but never overwrite a published release. No custom secrets are needed; Mozilla signing remains manual.
 
+If a tag run did not start, run CI manually from the default branch and set `release_tag` to the existing tag. It checks out and verifies that tag before creating the draft.
+
 ## Publish
 
 Upload the ZIP to the [AMO Developer Hub](https://addons.mozilla.org/developers/). Choose public listing or unlisted distribution, complete the listing and license details, and obtain a Mozilla-signed package. Keep the extension ID unchanged for updates.
