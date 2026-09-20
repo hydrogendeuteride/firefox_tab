@@ -1,0 +1,173 @@
+{
+  "extensionName": {
+    "message": "Window Tabs"
+  },
+  "extensionDescription": {
+    "message": "Save current-window tabs as Markdown, text, or JSON, and reopen them by dropping a file."
+  },
+  "loadingTabs": {
+    "message": "Loading tabs…"
+  },
+  "fileFormat": {
+    "message": "File format"
+  },
+  "formatMarkdown": {
+    "message": "Markdown (.md)"
+  },
+  "formatText": {
+    "message": "Text · titles + URLs"
+  },
+  "formatUrls": {
+    "message": "Text · URLs only"
+  },
+  "formatJson": {
+    "message": "JSON (.json)"
+  },
+  "exportButton": {
+    "message": "Export tabs"
+  },
+  "importTitle": {
+    "message": "Import tabs"
+  },
+  "settingsTitle": {
+    "message": "Settings"
+  },
+  "importIntro": {
+    "message": "Add tabs from a file. Your existing tabs stay open."
+  },
+  "dropTitle": {
+    "message": "Drop a file here"
+  },
+  "dropOne": {
+    "message": "Drop one file to get started."
+  },
+  "createTabs": {
+    "message": "Open tabs in this window"
+  },
+  "importHelpTitle": {
+    "message": "About importing"
+  },
+  "importHelp": {
+    "message": "Supports files exported by this extension. Duplicate URLs open separately; JSON restores pinned tabs. Unsupported addresses, such as internal settings pages, are skipped."
+  },
+  "autoSaveTitle": {
+    "message": "Auto-save"
+  },
+  "saveOnClose": {
+    "message": "Save when a window closes"
+  },
+  "closeWarning": {
+    "message": "Private windows are excluded. Saving may not finish when Firefox exits."
+  },
+  "destinationTitle": {
+    "message": "Save location"
+  },
+  "folderLabel": {
+    "message": "Folder within Downloads"
+  },
+  "saveDirect": {
+    "message": "Skip the save dialog for manual exports"
+  },
+  "folderHelpTitle": {
+    "message": "About save locations"
+  },
+  "folderHelp": {
+    "message": "Leave blank to use your default Downloads folder. To use another drive, change the download folder in Firefox settings. Auto-save skips the dialog and creates a new timestamped file."
+  },
+  "saveSettings": {
+    "message": "Save settings"
+  },
+  "operationFailed": {
+    "message": "Could not complete: $1"
+  },
+  "windowTabCount": {
+    "message": "Current window · $1 tabs"
+  },
+  "cannotReadTabs": {
+    "message": "Could not read this window’s tabs."
+  },
+  "preparingSave": {
+    "message": "Preparing download…"
+  },
+  "downloadStarted": {
+    "message": "Started downloading $1 tabs."
+  },
+  "savePath": {
+    "message": "Downloads/$1"
+  },
+  "lastAutoSave": {
+    "message": "Last auto-save · $1 · $2"
+  },
+  "settingsSaved": {
+    "message": "Settings saved."
+  },
+  "readingFile": {
+    "message": "$1 · reading…"
+  },
+  "unsupportedFile": {
+    "message": "Drop an MD, TXT, or JSON file."
+  },
+  "importPreview": {
+    "message": "$1 · $2 tabs · $3 skipped"
+  },
+  "oneFileOnly": {
+    "message": "Please drop one file at a time."
+  },
+  "creatingTabs": {
+    "message": "Opening tabs…"
+  },
+  "importComplete": {
+    "message": "Opened $1 · failed $2 · skipped $3"
+  },
+  "firstError": {
+    "message": " First error: $1"
+  },
+  "dropAnother": {
+    "message": "Drop another file to import more tabs."
+  },
+  "importFailed": {
+    "message": "Import failed: $1"
+  },
+  "invalidFolder": {
+    "message": "Use a relative folder, such as Firefox Tabs/Backup."
+  },
+  "invalidFormat": {
+    "message": "Invalid file format."
+  },
+  "unsupportedFormat": {
+    "message": "Unsupported file format."
+  },
+  "untitled": {
+    "message": "Untitled"
+  },
+  "emptyFile": {
+    "message": "The file is empty."
+  },
+  "invalidJson": {
+    "message": "The file contains invalid JSON."
+  },
+  "missingTabs": {
+    "message": "The JSON must contain a tabs array."
+  },
+  "invalidWindow": {
+    "message": "Select a valid window."
+  },
+  "noTabs": {
+    "message": "There are no tabs to export."
+  },
+  "invalidImport": {
+    "message": "Invalid import request."
+  },
+  "importBusy": {
+    "message": "An import is already running in this window."
+  },
+  "unsupportedUrl": {
+    "message": "The file contains an unsupported address."
+  },
+  "autoSaveError": {
+    "message": "Error: $1"
+  },
+  "autoSaveStarted": {
+    "message": "$1 tabs · download started · $2"
+  }
+}

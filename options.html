@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="settingsTitle">Settings</title>
+<link rel="stylesheet" href="popup.css"><link rel="stylesheet" href="import.css"><link rel="stylesheet" href="options.css">
+<script src="i18n.js" defer></script><script src="settings.js" defer></script><script src="options.js" defer></script>
+</head><body class="page"><main class="card">
+<header class="brand"><img src="icon.svg" width="40" height="40" alt=""><div>
+<p class="eyebrow" data-i18n="extensionName"></p><h1 data-i18n="settingsTitle"></h1>
+</div></header>
+<form id="settings-form"><fieldset id="fields" disabled>
+<section class="setting-section"><h2 data-i18n="autoSaveTitle"></h2>
+<label class="check"><span data-i18n="saveOnClose"></span><input id="save-on-close" type="checkbox" role="switch"></label>
+<p class="note" data-i18n="closeWarning"></p>
+<label for="auto-format" data-i18n="fileFormat"></label>
+<select id="auto-format">
+<option value="markdown" data-i18n="formatMarkdown"></option><option value="json" data-i18n="formatJson"></option>
+<option value="text" data-i18n="formatText"></option><option value="urls" data-i18n="formatUrls"></option>
+</select></section>
+<section class="setting-section"><h2 data-i18n="destinationTitle"></h2>
+<label for="folder" data-i18n="folderLabel"></label>
+<input id="folder" type="text" placeholder="Firefox Tabs" autocomplete="off" aria-describedby="path-preview">
+<p id="path-preview" class="path-preview"></p>
+<label class="check"><span data-i18n="saveDirect"></span><input id="save-to-folder" type="checkbox" role="switch"></label>
+<details><summary data-i18n="folderHelpTitle"></summary><p class="note" data-i18n="folderHelp"></p></details>
+</section><button type="submit" data-i18n="saveSettings"></button>
+</fieldset></form><p id="status" role="status" aria-live="polite"></p><p id="last-save" class="note"></p>
+</main></body></html>

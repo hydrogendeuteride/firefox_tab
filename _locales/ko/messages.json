@@ -1,0 +1,173 @@
+{
+  "extensionName": {
+    "message": "창 탭 저장"
+  },
+  "extensionDescription": {
+    "message": "현재 창의 탭을 마크다운, 텍스트, JSON으로 저장하고 파일을 끌어다 놓아 다시 여세요."
+  },
+  "loadingTabs": {
+    "message": "탭 확인 중…"
+  },
+  "fileFormat": {
+    "message": "파일 형식"
+  },
+  "formatMarkdown": {
+    "message": "마크다운 (.md)"
+  },
+  "formatText": {
+    "message": "텍스트 · 제목 + URL"
+  },
+  "formatUrls": {
+    "message": "텍스트 · URL만"
+  },
+  "formatJson": {
+    "message": "JSON (.json)"
+  },
+  "exportButton": {
+    "message": "탭 내보내기"
+  },
+  "importTitle": {
+    "message": "탭 가져오기"
+  },
+  "settingsTitle": {
+    "message": "설정"
+  },
+  "importIntro": {
+    "message": "파일에서 탭을 추가합니다. 기존 탭은 유지됩니다."
+  },
+  "dropTitle": {
+    "message": "파일을 끌어다 놓으세요"
+  },
+  "dropOne": {
+    "message": "파일 한 개를 놓아 주세요."
+  },
+  "createTabs": {
+    "message": "현재 창에 탭 만들기"
+  },
+  "importHelpTitle": {
+    "message": "가져오기 안내"
+  },
+  "importHelp": {
+    "message": "이 확장프로그램에서 내보낸 파일을 지원합니다. 중복 주소는 각각 열며 JSON의 고정 여부도 복원합니다. 내부 설정 페이지 등 지원하지 않는 주소는 건너뜁니다."
+  },
+  "autoSaveTitle": {
+    "message": "자동 저장"
+  },
+  "saveOnClose": {
+    "message": "창을 닫을 때 저장"
+  },
+  "closeWarning": {
+    "message": "사생활 보호 창은 제외됩니다. Firefox 전체 종료 시에는 저장이 완료되지 않을 수 있습니다."
+  },
+  "destinationTitle": {
+    "message": "저장 위치"
+  },
+  "folderLabel": {
+    "message": "다운로드 폴더 아래 경로"
+  },
+  "saveDirect": {
+    "message": "수동 내보내기도 바로 저장"
+  },
+  "folderHelpTitle": {
+    "message": "저장 위치 안내"
+  },
+  "folderHelp": {
+    "message": "빈칸이면 기본 다운로드 폴더에 저장합니다. 다른 드라이브는 Firefox 설정에서 기본 다운로드 폴더를 변경하세요. 자동 저장은 위치를 묻지 않으며 날짜·시간이 붙은 새 파일을 만듭니다."
+  },
+  "saveSettings": {
+    "message": "설정 저장"
+  },
+  "operationFailed": {
+    "message": "작업 실패: $1"
+  },
+  "windowTabCount": {
+    "message": "현재 창 · 탭 $1개"
+  },
+  "cannotReadTabs": {
+    "message": "탭을 확인할 수 없습니다."
+  },
+  "preparingSave": {
+    "message": "저장 준비 중…"
+  },
+  "downloadStarted": {
+    "message": "탭 $1개 다운로드를 시작했습니다."
+  },
+  "savePath": {
+    "message": "다운로드/$1"
+  },
+  "lastAutoSave": {
+    "message": "최근 자동 저장 · $1 · $2"
+  },
+  "settingsSaved": {
+    "message": "설정을 저장했습니다."
+  },
+  "readingFile": {
+    "message": "$1 · 읽는 중…"
+  },
+  "unsupportedFile": {
+    "message": "MD, TXT, JSON 파일을 놓아 주세요."
+  },
+  "importPreview": {
+    "message": "$1 · 탭 $2개 · 건너뜀 $3개"
+  },
+  "oneFileOnly": {
+    "message": "파일을 한 개씩 놓아 주세요."
+  },
+  "creatingTabs": {
+    "message": "탭을 여는 중…"
+  },
+  "importComplete": {
+    "message": "완료 $1개 · 실패 $2개 · 건너뜀 $3개"
+  },
+  "firstError": {
+    "message": " 첫 오류: $1"
+  },
+  "dropAnother": {
+    "message": "다른 파일을 놓아 추가로 가져올 수 있습니다."
+  },
+  "importFailed": {
+    "message": "가져오기 실패: $1"
+  },
+  "invalidFolder": {
+    "message": "다운로드 폴더 아래 경로를 입력하세요. 예: Firefox Tabs/Backup"
+  },
+  "invalidFormat": {
+    "message": "파일 형식이 올바르지 않습니다."
+  },
+  "unsupportedFormat": {
+    "message": "지원하지 않는 파일 형식입니다."
+  },
+  "untitled": {
+    "message": "제목 없음"
+  },
+  "emptyFile": {
+    "message": "파일이 비어 있습니다."
+  },
+  "invalidJson": {
+    "message": "JSON 형식이 올바르지 않습니다."
+  },
+  "missingTabs": {
+    "message": "JSON에 tabs 배열이 필요합니다."
+  },
+  "invalidWindow": {
+    "message": "올바른 창을 선택해 주세요."
+  },
+  "noTabs": {
+    "message": "내보낼 탭이 없습니다."
+  },
+  "invalidImport": {
+    "message": "가져오기 요청이 올바르지 않습니다."
+  },
+  "importBusy": {
+    "message": "이 창에서 이미 탭을 가져오고 있습니다."
+  },
+  "unsupportedUrl": {
+    "message": "지원하지 않는 주소가 있습니다."
+  },
+  "autoSaveError": {
+    "message": "오류: $1"
+  },
+  "autoSaveStarted": {
+    "message": "$1개 탭 · 다운로드 시작 · $2"
+  }
+}

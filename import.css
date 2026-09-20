@@ -1,0 +1,12 @@
+body.page { width: auto; max-width: 620px; margin: 48px auto; padding: 24px; }
+.card { padding: 32px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); box-shadow: 0 8px 32px #00000005; }
+#preview { font-size: 12px; color: var(--muted); min-height: 20px; margin: 12px 0 0; }
+#drop-zone { border: 2px dashed var(--border); border-radius: 12px; padding: 38px 16px; text-align: center; background: var(--bg); margin-top: 22px; }
+#drop-zone strong, #drop-zone span, #drop-zone svg { pointer-events: none; }
+#drop-zone svg { color: var(--accent); margin-bottom: 14px; }
+#drop-zone strong, #drop-zone span { display: block; }
+#drop-zone strong { font-size: 15px; font-weight: 600; }
+#drop-zone span { margin-top: 8px; color: var(--muted); font-size: 12px; letter-spacing: 1px; }
+#drop-zone.dragging { border-color: var(--accent); background: light-dark(#eeebff, #353047); }
+#drop-zone[aria-disabled="true"] { opacity: .5; }
+@media (max-width: 480px) { body.page { margin: 12px auto; padding: 12px; } .card { padding: 22px; } }

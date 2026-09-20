@@ -1,0 +1,31 @@
+# Generated packages and UI previews
+/dist/
+/.preview/
+/web-ext-artifacts/
+
+# Local dependencies and caches
+node_modules/
+.npm/
+.cache/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Logs
+*.log
+
+# Local signing credentials and environment overrides
+.env
+.env.*
+!.env.example
+/web-ext-config.local.*
+
+# Editor and OS files
+/.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
