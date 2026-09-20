@@ -8,6 +8,6 @@
     "package": "python scripts/package.py"
   },
   "devDependencies": {
-    "web-ext": "10.3.0"
+    "web-ext": "10.6.0"
   }
 }
