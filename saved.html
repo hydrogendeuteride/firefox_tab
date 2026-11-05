@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="savedTitle">Saved tabs</title>
+<link rel="stylesheet" href="popup.css"><link rel="stylesheet" href="import.css"><link rel="stylesheet" href="saved-list.css">
+<script src="i18n.js" defer></script><script src="saved-list.js" defer></script><script src="saved-page.js" defer></script>
+</head><body class="page"><main class="card">
+<header class="brand"><img src="icon.svg" width="40" height="40" alt=""><div>
+<p class="eyebrow" data-i18n="extensionName"></p><h1 data-i18n="savedTitle"></h1>
+</div></header>
+<div id="saved-list" class="saved-list" aria-busy="true"></div>
+<p id="saved-status" role="status" aria-live="polite"></p>
+<footer class="popup-footer">
+<button id="open-import" class="secondary" type="button" data-i18n="importTitle"></button>
+<button id="open-settings" class="quiet" type="button" data-i18n="settingsTitle"></button>
+</footer>
+</main></body></html>

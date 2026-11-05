@@ -1,11 +1,11 @@
 {
   "manifest_version": 3,
   "name": "__MSG_extensionName__",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "__MSG_extensionDescription__",
   "default_locale": "en",
   "permissions": ["tabs", "downloads", "storage"],
-  "background": { "scripts": ["i18n.js", "export.js", "import.js", "settings.js", "background.js", "autosave.js"] },
+  "background": { "scripts": ["i18n.js", "export.js", "import.js", "settings.js", "saved-windows.js", "background.js", "autosave.js"] },
   "options_ui": { "page": "options.html", "open_in_tab": true },
   "action": {
     "default_title": "__MSG_extensionName__",

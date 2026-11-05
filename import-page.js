@@ -71,7 +71,7 @@ importButton.addEventListener("click", async () => {
       status.textContent += t("firstError", [result.firstError]);
     }
     prepared = undefined;
-    preview.textContent = t("dropAnother");
+    preview.textContent = "";
   } catch (error) {
     status.dataset.error = "true";
     status.textContent = t("importFailed", [error.message]);

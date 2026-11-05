@@ -24,7 +24,7 @@
     "message": "JSON (.json)"
   },
   "exportButton": {
-    "message": "탭 내보내기"
+    "message": "현재 창 저장"
   },
   "importTitle": {
     "message": "탭 가져오기"
@@ -32,32 +32,17 @@
   "settingsTitle": {
     "message": "설정"
   },
-  "importIntro": {
-    "message": "파일에서 탭을 추가합니다. 기존 탭은 유지됩니다."
-  },
   "dropTitle": {
     "message": "파일을 끌어다 놓으세요"
   },
-  "dropOne": {
-    "message": "파일 한 개를 놓아 주세요."
-  },
   "createTabs": {
     "message": "현재 창에 탭 만들기"
-  },
-  "importHelpTitle": {
-    "message": "가져오기 안내"
-  },
-  "importHelp": {
-    "message": "이 확장프로그램에서 내보낸 파일을 지원합니다. 중복 주소는 각각 열며 JSON의 고정 여부도 복원합니다. 내부 설정 페이지 등 지원하지 않는 주소는 건너뜁니다."
   },
   "autoSaveTitle": {
     "message": "자동 저장"
   },
   "saveOnClose": {
     "message": "창을 닫을 때 저장"
-  },
-  "closeWarning": {
-    "message": "사생활 보호 창은 제외됩니다. Firefox 전체 종료 시에는 저장이 완료되지 않을 수 있습니다."
   },
   "destinationTitle": {
     "message": "저장 위치"
@@ -67,12 +52,6 @@
   },
   "saveDirect": {
     "message": "수동 내보내기도 바로 저장"
-  },
-  "folderHelpTitle": {
-    "message": "저장 위치 안내"
-  },
-  "folderHelp": {
-    "message": "빈칸이면 기본 다운로드 폴더에 저장합니다. 다른 드라이브는 Firefox 설정에서 기본 다운로드 폴더를 변경하세요. 자동 저장은 위치를 묻지 않으며 날짜·시간이 붙은 새 파일을 만듭니다."
   },
   "saveSettings": {
     "message": "설정 저장"
@@ -122,9 +101,6 @@
   "firstError": {
     "message": " 첫 오류: $1"
   },
-  "dropAnother": {
-    "message": "다른 파일을 놓아 추가로 가져올 수 있습니다."
-  },
   "importFailed": {
     "message": "가져오기 실패: $1"
   },
@@ -169,5 +145,47 @@
   },
   "autoSaveStarted": {
     "message": "$1개 탭 · 다운로드 시작 · $2"
+  },
+  "savedTitle": {
+    "message": "저장한 탭"
+  },
+  "allSaved": {
+    "message": "전체 목록"
+  },
+  "savedDetails": {
+    "message": "$1 · 탭 $2개"
+  },
+  "restoreNewWindow": {
+    "message": "새 창으로 복원"
+  },
+  "deleteSaved": {
+    "message": "삭제"
+  },
+  "noSavedTabs": {
+    "message": "저장한 탭 없음"
+  },
+  "savedNotFound": {
+    "message": "저장한 기록을 찾을 수 없습니다."
+  },
+  "noRestorableTabs": {
+    "message": "이 기록에 복원할 수 있는 주소가 없습니다."
+  },
+  "restoreBusy": {
+    "message": "이미 이 기록을 복원하고 있습니다."
+  },
+  "librarySaved": {
+    "message": "탭 $1개를 목록에 저장했습니다."
+  },
+  "librarySaveFailed": {
+    "message": "목록 저장 실패: $1"
+  },
+  "fileSaveFailed": {
+    "message": "파일 저장 실패: $1"
+  },
+  "autoSaveResult": {
+    "message": "$1 파일: $2"
+  },
+  "savedDetailsCompact": {
+    "message": "$1 · $2개"
   }
 }

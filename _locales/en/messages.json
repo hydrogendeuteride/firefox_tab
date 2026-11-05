@@ -24,7 +24,7 @@
     "message": "JSON (.json)"
   },
   "exportButton": {
-    "message": "Export tabs"
+    "message": "Save current window"
   },
   "importTitle": {
     "message": "Import tabs"
@@ -32,32 +32,17 @@
   "settingsTitle": {
     "message": "Settings"
   },
-  "importIntro": {
-    "message": "Add tabs from a file. Your existing tabs stay open."
-  },
   "dropTitle": {
     "message": "Drop a file here"
   },
-  "dropOne": {
-    "message": "Drop one file to get started."
-  },
   "createTabs": {
     "message": "Open tabs in this window"
-  },
-  "importHelpTitle": {
-    "message": "About importing"
-  },
-  "importHelp": {
-    "message": "Supports files exported by this extension. Duplicate URLs open separately; JSON restores pinned tabs. Unsupported addresses, such as internal settings pages, are skipped."
   },
   "autoSaveTitle": {
     "message": "Auto-save"
   },
   "saveOnClose": {
     "message": "Save when a window closes"
-  },
-  "closeWarning": {
-    "message": "Private windows are excluded. Saving may not finish when Firefox exits."
   },
   "destinationTitle": {
     "message": "Save location"
@@ -67,12 +52,6 @@
   },
   "saveDirect": {
     "message": "Skip the save dialog for manual exports"
-  },
-  "folderHelpTitle": {
-    "message": "About save locations"
-  },
-  "folderHelp": {
-    "message": "Leave blank to use your default Downloads folder. To use another drive, change the download folder in Firefox settings. Auto-save skips the dialog and creates a new timestamped file."
   },
   "saveSettings": {
     "message": "Save settings"
@@ -122,9 +101,6 @@
   "firstError": {
     "message": " First error: $1"
   },
-  "dropAnother": {
-    "message": "Drop another file to import more tabs."
-  },
   "importFailed": {
     "message": "Import failed: $1"
   },
@@ -169,5 +145,47 @@
   },
   "autoSaveStarted": {
     "message": "$1 tabs · download started · $2"
+  },
+  "savedTitle": {
+    "message": "Saved tabs"
+  },
+  "allSaved": {
+    "message": "View all saved tabs"
+  },
+  "savedDetails": {
+    "message": "$1 · $2 tabs"
+  },
+  "restoreNewWindow": {
+    "message": "Restore in new window"
+  },
+  "deleteSaved": {
+    "message": "Delete"
+  },
+  "noSavedTabs": {
+    "message": "No saved tabs"
+  },
+  "savedNotFound": {
+    "message": "This saved entry no longer exists."
+  },
+  "noRestorableTabs": {
+    "message": "This entry has no supported addresses to restore."
+  },
+  "restoreBusy": {
+    "message": "This entry is already being restored."
+  },
+  "librarySaved": {
+    "message": "Saved $1 tabs to the list."
+  },
+  "librarySaveFailed": {
+    "message": "Could not save to the list: $1"
+  },
+  "fileSaveFailed": {
+    "message": "Could not save the file: $1"
+  },
+  "autoSaveResult": {
+    "message": "$1 File: $2"
+  },
+  "savedDetailsCompact": {
+    "message": "$1 · $2 tabs"
   }
 }

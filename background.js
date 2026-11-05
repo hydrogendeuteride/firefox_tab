@@ -56,12 +56,12 @@ async function exportWindowTabs(message) {
     if (!tabs.length) throw new Error(t("noTabs"));
     const settings = await readSettings();
     const file = createTabExport(tabs, message.format);
-    await downloadTabFile(file, {
+    const result = await saveTabBackup(tabs, file, {
       filename: savedFilename(file, settings),
       saveAs: !settings.saveToFolder,
       incognito: sourceWindow.incognito
     });
-    return { ok: true, count: tabs.length };
+    return { ...result, count: tabs.length };
   } catch (error) {
     return { ok: false, error: error.message || String(error) };
   }
@@ -85,23 +85,26 @@ async function importWindowTabs(message) {
     let created = 0;
     let failed = 0;
     let firstError = "";
+    const tabIds = [];
     for (const tab of tabs) {
       try {
         const existing = await browser.tabs.query({ windowId });
-        await browser.tabs.create({
+        const createdTab = await browser.tabs.create({
           windowId,
           url: tab.url === "about:newtab" ? undefined : tab.url,
           pinned: tab.pinned,
           active: false,
           index: tab.pinned ? existing.filter(item => item.pinned).length : existing.length
         });
+        tabIds.push(createdTab.id);
         created++;
       } catch (error) {
+        tabIds.push(null);
         failed++;
         if (!firstError) firstError = error.message || String(error);
       }
     }
-    return { ok: true, created, failed, firstError };
+    return { ok: true, created, failed, firstError, tabIds };
   } catch (error) {
     return { ok: false, error: error.message || String(error) };
   } finally {

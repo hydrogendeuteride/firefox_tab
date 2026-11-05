@@ -1,0 +1,37 @@
+.saved-section { border-top: 1px solid var(--border); margin-top: 12px; padding-top: 12px; }
+.saved-section h2 { margin-bottom: 4px; }
+.saved-section .saved-list { max-height: 200px; overflow-y: auto; scrollbar-width: thin; padding: 0 2px; }
+.saved-item { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 8px;
+  padding: 4px 0; border-bottom: 1px solid var(--border); }
+.saved-item:last-child { border-bottom: 0; }
+.saved-item h3 { min-width: 0; margin: 0; font-size: 13px; font-weight: 600; line-height: 1.4;
+  white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+.saved-meta { color: var(--muted); font-size: 10px; margin: 0; white-space: nowrap; }
+.saved-actions { display: flex; gap: 2px; align-items: center; }
+.saved-actions .icon-button { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 28px; height: 28px; margin: 0; padding: 5px; border: 0; border-radius: 5px;
+  background: transparent; color: var(--muted); }
+.saved-actions .icon-button svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.7;
+  stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.saved-actions .icon-button:hover:not(:disabled) { color: var(--accent); background: light-dark(#eeecfa, #303140); }
+.saved-actions .delete-saved:hover:not(:disabled) { color: light-dark(#a21d35, #ffacba); background: light-dark(#fff0f3, #3a2630); }
+.saved-empty { padding: 12px 0; margin: 0; }
+#saved-status:empty { display: none; }
+#saved-status { font-size: 12px; overflow-wrap: anywhere; }
+#saved-status[data-error="true"] { color: light-dark(#a21d35, #ffacba); }
+#open-saved { margin-top: 4px; padding: 6px; font-size: 12px; }
+body.page .saved-item { padding: 8px 0; }
+body.page .saved-item h3 { font-size: 14px; }
+body.page .saved-meta { font-size: 11px; }
+[hidden] { display: none !important; }
+.popup { display: flex; flex-direction: column; max-height: 600px; padding: 20px; }
+.popup .brand { flex-shrink: 0; margin-bottom: 12px; }
+.popup main { display: flex; flex-direction: column; min-height: 0; }
+.popup main > :not(.saved-section) { flex-shrink: 0; }
+.popup .saved-section { display: flex; flex-direction: column; min-height: 0; }
+.popup .saved-section h2, .popup #open-saved { flex-shrink: 0; }
+.popup #status { max-height: 84px; overflow-y: auto; }
+.popup .saved-list { min-height: 36px; }
+.popup .popup-footer { display: flex; gap: 8px; flex-shrink: 0; margin-top: 16px; padding-top: 12px; }
+.popup .popup-footer button { margin: 0; width: auto; flex: 1; padding: 10px; font-size: 12px; }
+@media (max-width: 480px) { body.page .saved-meta { max-width: 90px; overflow: hidden; text-overflow: ellipsis; } }

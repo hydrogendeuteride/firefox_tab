@@ -6,7 +6,11 @@ let autoSettings;
 const closingWindows = new Set();
 
 function snapshotTab(tab) {
-  return { id: tab.id, index: tab.index, title: tab.title, url: tab.url, pinned: tab.pinned };
+  return { id: tab.id, index: tab.index, title: tab.title, url: tab.url, pinned: tab.pinned, active: tab.active };
+}
+
+function setSnapshotActive(snapshot, id) {
+  snapshot.tabs.forEach(tab => { tab.active = tab.id === id; });
 }
 
 function reindex(snapshot) {
@@ -68,6 +72,7 @@ browser.tabs.onCreated.addListener(tab => onTabEvent(async () => {
   const snapshot = snapshots[tab.windowId];
   snapshot.tabs = snapshot.tabs.filter(item => item.id !== tab.id);
   snapshot.tabs.splice(tab.index, 0, snapshotTab(tab));
+  if (tab.active) setSnapshotActive(snapshot, tab.id);
   delete snapshot.lastTab;
   reindex(snapshot);
 }));
@@ -77,6 +82,12 @@ browser.tabs.onUpdated.addListener((id, change, tab) => onTabEvent(() => {
   if (!snapshot || closingWindows.has(tab.windowId)) return;
   const index = snapshot.tabs.findIndex(item => item.id === id);
   if (index !== -1) snapshot.tabs[index] = { ...snapshotTab(tab), index };
+  if (tab.active) setSnapshotActive(snapshot, id);
+}));
+
+browser.tabs.onActivated.addListener(info => onTabEvent(() => {
+  const snapshot = snapshots[info.windowId];
+  if (snapshot && !closingWindows.has(info.windowId)) setSnapshotActive(snapshot, info.tabId);
 }));
 
 browser.tabs.onMoved.addListener((id, info) => onTabEvent(() => {
@@ -126,6 +137,7 @@ browser.tabs.onAttached.addListener((id, info) => {
     const snapshot = snapshots[info.newWindowId];
     snapshot.tabs = snapshot.tabs.filter(item => item.id !== id);
     snapshot.tabs.splice(info.newPosition, 0, snapshotTab(tab));
+    if (tab.active) setSnapshotActive(snapshot, id);
     delete snapshot.lastTab;
     reindex(snapshot);
   });
@@ -140,10 +152,9 @@ browser.windows.onRemoved.addListener(windowId => queueAutoTask(async () => {
   const tabs = snapshot.tabs.length ? snapshot.tabs : snapshot.lastTab ? [snapshot.lastTab] : [];
   if (!tabs.length) return;
   const file = createTabExport(tabs, autoSettings.format);
-  file.filename = file.filename.replace("firefox-tabs-", `firefox-tabs-window-${windowId}-`);
   const filename = savedFilename(file, autoSettings);
-  await downloadTabFile(file, { filename, saveAs: false });
-  await reportAutoSave("autoSaveStarted", [tabs.length, filename]);
+  const result = await saveTabBackup(tabs, file, { filename, saveAs: false });
+  await reportAutoSave("autoSaveResult", [result.message, filename]);
 }));
 
 browser.runtime.onMessage.addListener((message, sender) => {

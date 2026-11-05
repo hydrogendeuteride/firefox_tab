@@ -35,8 +35,9 @@ exportButton.addEventListener("click", async () => {
       windowId: sourceWindow.id,
       format: format.value
     });
-    if (!result.ok) throw new Error(result.error);
-    status.textContent = t("downloadStarted", [result.count]);
+    if (!result.ok) throw new Error(result.error || result.message);
+    status.dataset.error = String(result.warning);
+    status.textContent = result.message;
   } catch (error) {
     showError(error);
   } finally {
@@ -60,4 +61,14 @@ document.getElementById("open-settings").addEventListener("click", () => {
   browser.runtime.openOptionsPage().catch(showError);
 });
 
+document.getElementById("open-saved").addEventListener("click", async () => {
+  try {
+    await browser.tabs.create({ url: browser.runtime.getURL("saved.html") });
+    window.close();
+  } catch (error) {
+    showError(error);
+  }
+});
+
 initialize();
+initializeSavedList(5);
